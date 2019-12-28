@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "prettier": true,
+    "quotemark": {
+      "options": ["single", "avoid-escape"]
+    },
+    "max-line-length": {
+      "options": [100]
+    },
+    "no-console": false,
+    "no-var-requires": {
+      "severity": "error"
+    },
+    "semicolon": {
+      "options": ["always"]
+    },
+    "object-literal-sort-keys": false
+  }
+}
