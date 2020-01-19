@@ -6,17 +6,18 @@ import { createConnection } from "typeorm";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import cors from "cors";
+import { redis } from "./redis";
 
 import { RegisterResolver } from "./modules/user/Register";
-import { redis } from "./redis";
 import { LoginResolver } from "./modules/user/Login";
 import { MeResolver } from "./modules/user/Me";
+import { ArticleResolver } from "./modules/article/Article";
 
 const main = async () => {
   await createConnection();
 
   const schema = await buildSchema({
-    resolvers: [MeResolver, RegisterResolver, LoginResolver]
+    resolvers: [MeResolver, RegisterResolver, LoginResolver, ArticleResolver]
   });
 
   const apolloServer = new ApolloServer({

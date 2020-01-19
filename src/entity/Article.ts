@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  Column,
+  BaseEntity
+} from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
 
 @ObjectType()
@@ -9,7 +15,7 @@ export class Article extends BaseEntity {
   id: number;
 
   @Field()
-  @Column()
+  @CreateDateColumn()
   date: Date;
 
   @Field()
@@ -23,7 +29,4 @@ export class Article extends BaseEntity {
   @Field()
   @Column()
   author: string;
-
-  @Column()
-  password: string;
 }
