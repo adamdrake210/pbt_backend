@@ -16,7 +16,13 @@ const main = async () => {
   await createConnection();
 
   const schema = await buildSchema({
-    resolvers: [MeResolver, RegisterResolver, LoginResolver]
+    resolvers: [MeResolver, RegisterResolver, LoginResolver],
+    authChecker: ({ context: { req } }) => {
+      if (req.session.userId) {
+        return true;
+      }
+      return false;
+    }
   });
 
   const apolloServer = new ApolloServer({
@@ -55,7 +61,7 @@ const main = async () => {
   apolloServer.applyMiddleware({ app });
 
   app.listen(4000, () => {
-    console.log("Server started on localhost:4000");
+    console.log("Server started on http://localhost:4000/graphql");
   });
 };
 
