@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --respawn src/index.ts"
+    "start": "ts-node-dev --respawn src/index.ts",
+    "db:setup": "ts-node ./src/test-utils/setup.ts",
+    "test": "npm run db:setup && jest"
   },
   "dependencies": {
     "apollo-server-express": "^2.9.14",
@@ -29,13 +31,16 @@
     "@types/express-session": "^1.15.16",
     "@types/graphql": "^14.5.0",
     "@types/ioredis": "^4.14.3",
+    "@types/jest": "^25.1.4",
     "@types/node": "^12.12.21",
+    "jest": "^25.1.0",
     "nodemon": "^2.0.2",
+    "ts-jest": "^25.2.1",
     "ts-node": "^8.5.4",
     "ts-node-dev": "^1.0.0-pre.44",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.8.3"
   }
 }
