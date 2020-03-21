@@ -26,6 +26,10 @@ export class Article extends BaseEntity {
   @Column()
   articleText: string;
 
+  @Field(() => Boolean, { nullable: true })
+  @Column({ default: false })
+  isPublished: boolean;
+
   @Field()
   @Column()
   author: string;

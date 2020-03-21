@@ -24,12 +24,13 @@ export class ArticleResolver {
 
   @Mutation(() => Article)
   async article(
-    @Arg("data") { title, articleText, author }: ArticleInput
+    @Arg("data") { title, articleText, author, isPublished }: ArticleInput
   ): Promise<Article> {
     const article = await Article.create({
       title,
       articleText,
-      author
+      author,
+      isPublished
     }).save();
 
     return article;

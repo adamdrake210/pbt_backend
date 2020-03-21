@@ -9,6 +9,10 @@ export class ArticleInput {
 
   @Field()
   articleText: string;
+
   @Field()
   author: string;
+
+  @Field()
+  isPublished: boolean;
 }
