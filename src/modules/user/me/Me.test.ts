@@ -38,7 +38,6 @@ describe("Me", () => {
       userId: user.id
     });
 
-    console.log(response);
     expect(response).toMatchObject({
       data: {
         me: {
@@ -56,7 +55,6 @@ describe("Me", () => {
       source: meQuery
     });
 
-    console.log(response);
     expect(response).toMatchObject({
       data: {
         me: null
